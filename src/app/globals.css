@@ -1,26 +1,161 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
+  /* Light Mode Colors */
   --background: #ffffff;
-  --foreground: #171717;
-}
+  --background-secondary: #f8f9fa;
+  --background-tertiary: #e9ecef;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --foreground: #212529;
+  --foreground-secondary: #495057;
+  --foreground-muted: #6c757d;
+
+  --border: #dee2e6;
+  --border-secondary: #ced4da;
+
+  --accent: #0d6efd;
+  --accent-hover: #0a58ca;
+  --accent-muted: #cfe2ff;
+
+  --card: #ffffff;
+  --card-hover: #f8f9fa;
+
+  --input: #ffffff;
+  --input-border: #ced4da;
+
+  --muted: #f8f9fa;
+  --muted-foreground: #6c757d;
+
+  --destructive: #dc3545;
+  --destructive-foreground: #ffffff;
+
+  --success: #198754;
+  --success-foreground: #ffffff;
+
+  --warning: #ffc107;
+  --warning-foreground: #000000;
+
+  --radius: 0.5rem;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
+    /* Dark Mode Colors */
     --background: #0a0a0a;
+    --background-secondary: #171717;
+    --background-tertiary: #212529;
+
     --foreground: #ededed;
+    --foreground-secondary: #adb5bd;
+    --foreground-muted: #6c757d;
+
+    --border: #343a40;
+    --border-secondary: #495057;
+
+    --accent: #3b82f6;
+    --accent-hover: #2563eb;
+    --accent-muted: #1e293b;
+
+    --card: #171717;
+    --card-hover: #212529;
+
+    --input: #171717;
+    --input-border: #343a40;
+
+    --muted: #212529;
+    --muted-foreground: #adb5bd;
+
+    --destructive: #ef4444;
+    --destructive-foreground: #ffffff;
+
+    --success: #22c55e;
+    --success-foreground: #ffffff;
+
+    --warning: #eab308;
+    --warning-foreground: #000000;
   }
+}
+
+/* Optional: Force dark mode class */
+.dark {
+  --background: #0a0a0a;
+  --background-secondary: #171717;
+  --background-tertiary: #212529;
+
+  --foreground: #ededed;
+  --foreground-secondary: #adb5bd;
+  --foreground-muted: #6c757d;
+
+  --border: #343a40;
+  --border-secondary: #495057;
+
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --accent-muted: #1e293b;
+
+  --card: #171717;
+  --card-hover: #212529;
+
+  --input: #171717;
+  --input-border: #343a40;
+
+  --muted: #212529;
+  --muted-foreground: #adb5bd;
+
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+
+  --success: #22c55e;
+  --success-foreground: #ffffff;
+
+  --warning: #eab308;
+  --warning-foreground: #000000;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-background-secondary: var(--background-secondary);
+  --color-background-tertiary: var(--background-tertiary);
+  --color-foreground: var(--foreground);
+  --color-foreground-secondary: var(--foreground-secondary);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-border: var(--border);
+  --color-border-secondary: var(--border-secondary);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-muted: var(--accent-muted);
+  --color-card: var(--card);
+  --color-card-hover: var(--card-hover);
+  --color-input: var(--input);
+  --color-input-border: var(--input-border);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth transitions for theme switching */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
